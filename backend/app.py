@@ -300,3 +300,12 @@ if __name__ == '__main__':
     app.run(debug=True, host='127.0.0.1', port=5000)
 
 Abrir: index.html
+
+Mediaris/
+├── index.html          ← Frontend principal
+├── css/
+│   └── styles.css      ← Estilos
+├── js/
+│   └── bot.js          ← JavaScript chatbot
+└── backend/
+    └── app.py          ← Servidor Flask (ID actualizado)

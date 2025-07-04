@@ -14,7 +14,19 @@ load_dotenv(env_path)
 
 # Verifica que la API key se cargue correctamente
 API_KEY = os.getenv('API_KEY')
-print("API_KEY:", API_KEY)
+# Verifica que la clave esté disponible
+if not API_KEY:
+    print("❌ Error: API_KEY no encontrada en variables de entorno")
+    print("Por favor, configura tu clave de OpenAI en el archivo api_key.env")
+    exit(1)
+else:
+    print("✅ API_KEY cargada desde variables de entorno")
+
+# Solo mostrar primeros y últimos caracteres por seguridad
+if API_KEY:
+    print(f"API_KEY cargada: {API_KEY[:10]}...{API_KEY[-10:]}")
+else:
+    print("❌ ERROR: No se pudo cargar la API_KEY")
 
 app = Flask(__name__)
 CORS(app)  # Permite requests desde el frontend

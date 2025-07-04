@@ -174,14 +174,18 @@ body {
     color: #fff !important;
 }
 
-/* Secciones generales */
+/* Secciones generales - Mismo estilo que el modal del chatbot */
 section {
     padding: 2.5em 1em;
     max-width: 1100px;
     margin: 0 auto;
-    background: var(--white);
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(72,72,72,0.04);
+    background: linear-gradient(145deg, #ffffff 0%, #fafafa 100%);
+    border-radius: 16px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.08),
+        0 4px 16px rgba(0, 0, 0, 0.04),
+        0 2px 8px rgba(0, 0, 0, 0.02);
+    border: 1px solid #f0f0f0;
     margin-bottom: 0;
 }
 .fondo-mediadores > .section {
@@ -235,13 +239,32 @@ section {
     max-width: 220px;
     height: auto;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Efecto hover para las tarjetas de conflictos */
+.tipo-mediacion-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background-color: #f8f9fa;
+    border-color: #FF5A5F;
+}
+
+.tipo-mediacion-card:hover .icono {
+    transform: scale(1.1);
+    color: #FF385C;
+}
+
+.tipo-mediacion-card:hover span {
+    color: #FF5A5F;
 }
 
 /* Estilo para el icono y el título (se mantiene igual) */
 .tipo-mediacion-card .icono {
     font-size: 40px;
     color: #ff5a5f;
+    transition: all 0.3s ease;
 }
 
 .tipo-mediacion-card span {
@@ -251,6 +274,7 @@ section {
     margin-bottom: 8px;
     white-space: nowrap;
     text-align: center;
+    transition: color 0.3s ease;
 }
 
 /* Reducir el tamaño de las descripciones */
@@ -265,49 +289,74 @@ section {
 }
 
 /* Botón principal */
+/* Botón principal - Diseño profesional y sobrio */
 .bot-link {
     display: inline-block;
     margin-top: 1em;
-    background: var(--airbnb-main);
-    color: var(--white);
-    padding: 0.7em 1.5em;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    color: var(--airbnb-main);
+    padding: 0.8em 2em;
+    border: 2px solid rgba(255, 90, 95, 0.2);
     border-radius: 6px;
     text-decoration: none;
     font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    transition: background 0.2s;
-    border: none;
-}
-.bot-link:hover {
-    background: var(--airbnb-accent);
-    color: var(--white);
+    font-weight: 600;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 
+        0 3px 8px rgba(255, 90, 95, 0.12),
+        0 1px 4px rgba(0, 0, 0, 0.06);
+    letter-spacing: 0.2px;
 }
 
-/* Botón grande y centrado */
+.bot-link:hover {
+    background: linear-gradient(135deg, var(--airbnb-main) 0%, var(--airbnb-coral) 100%);
+    color: var(--white);
+    border-color: var(--airbnb-main);
+    transform: translateY(-1px);
+    box-shadow: 
+        0 5px 12px rgba(255, 90, 95, 0.2),
+        0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.bot-link:active {
+    transform: translateY(0);
+    transition: all 0.1s ease;
+}
+
+/* Botón grande y centrado - Diseño profesional */
 #acceso-bot-section .bot-link,
 .section.acceso-bot-section .bot-link {
-    background: #fff !important;
+    background: #ffffff !important;
     color: #FF5A5F !important;
-    border: 2px solid #fff;
-    font-weight: 700;
+    border: 2px solid rgba(255,90,95,0.2);
+    font-weight: 600;
     font-size: 1.1em;
-    padding: 0.6em 1.5em;
-    border-radius: 8px;
+    padding: 0.8em 1.8em;
+    border-radius: 6px;
     display: block;
     margin: 2em auto 0 auto;
     text-align: center;
-    box-shadow: 0 4px 16px rgba(255,90,95,0.18), 0 1.5px 6px rgba(0,0,0,0.07);
-    transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+    box-shadow: 
+        0 3px 8px rgba(255,90,95,0.12),
+        0 1px 4px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
     max-width: 220px;
-    letter-spacing: 1px;
+    letter-spacing: 0.2px;
+    position: relative;
 }
+
 #acceso-bot-section .bot-link:hover,
 .section.acceso-bot-section .bot-link:hover {
-    background: #FF385C !important;
+    background: #FF5A5F !important;
     color: #fff !important;
-    border-color: #FF385C;
-    box-shadow: 0 6px 24px rgba(255,90,95,0.22), 0 2px 8px rgba(0,0,0,0.10);
-    transform: scale(1.06);
+    border-color: #FF5A5F;
+    box-shadow: 
+        0 5px 12px rgba(255,90,95,0.18),
+        0 2px 6px rgba(0,0,0,0.08);
+    transform: translateY(-1px);
 }
 
 /* Lista de ventajas */
@@ -392,16 +441,19 @@ footer {
   transition: opacity 0.3s;
 }
 .modal-content {
-  background: rgba(255,255,255,0.92);
+  background: linear-gradient(145deg, #ffffff 0%, #fafafa 100%);
   margin: 5% auto;
   padding: 2em 2em 1.5em 2em;
-  border-radius: 10px;
+  border-radius: 16px;
   max-width: 420px;
-  box-shadow: 0 4px 24px rgba(255,90,95,0.18);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f0f0f0;
   position: relative;
   text-align: justify;
   animation: modalOpen 0.35s cubic-bezier(.4,0,.2,1);
-  backdrop-filter: blur(2px);
 }
 .modal-img {
   width: 100%;
@@ -631,25 +683,37 @@ footer {
 #proceso .bot-link {
   display: block;
   margin: 2em auto 0 auto;
-  background: #fff;
+  background: #ffffff;
   color: var(--airbnb-main);
-  font-size: 1.18em;
-  font-weight: 700;
-  padding: 0.9em 2.2em;
-  border-radius: 30px;
+  font-size: 1.1em;
+  font-weight: 600;
+  padding: 0.8em 2em;
+  border-radius: 6px;
   text-align: center;
   text-decoration: none;
-  box-shadow: 0 4px 18px rgba(255,90,95,0.13);
-  letter-spacing: 0.04em;
-  transition: transform 0.18s, box-shadow 0.18s;
+  box-shadow: 
+    0 3px 10px rgba(255,90,95,0.12),
+    0 1px 5px rgba(0,0,0,0.06);
+  letter-spacing: 0.2px;
+  transition: all 0.3s ease;
   width: fit-content;
   position: relative;
-  top: 0;
+  border: 2px solid rgba(255,90,95,0.15);
 }
 
 #proceso .bot-link:hover {
-  transform: translateY(-4px) scale(1.06);
-  box-shadow: 0 8px 28px rgba(255,90,95,0.18);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 5px 15px rgba(255,90,95,0.18),
+    0 2px 8px rgba(0,0,0,0.08);
+  background: #f8f9fa;
+  color: var(--airbnb-coral);
+  border-color: rgba(255,90,95,0.25);
+}
+
+#proceso .bot-link:active {
+  transform: translateY(0);
+  transition: all 0.1s ease;
 }
 
 /* Fondo de la foto SIN aclarar ni overlay */
@@ -666,30 +730,35 @@ footer {
   content: none;
 }
 
-/* Ventana "Importante aclaración y objetivos de la plataforma:" */
+/* Ventana "Importante aclaración y objetivos de la plataforma:" - Mismo estilo que chatbot */
 #aclaracion-modal .modal-content {
-  background: rgba(180,180,180,0.75); /* gris transparentado */
-  color: #222;
+  background: linear-gradient(145deg, #ffffff 0%, #fafafa 100%);
+  color: #484848;
   font-size: 0.92em;
-  border-radius: 10px;
-  padding: 1.2em 1.2em 1em 1.2em;
+  border-radius: 16px;
+  padding: 1.8em 1.8em 1.5em 1.8em;
   max-width: 1100px;   /* Igual que las secciones principales */
   width: 95vw;
   box-sizing: border-box;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f0f0f0;
 }
 #aclaracion-modal .modal-content h2,
 #aclaracion-modal .modal-content h3,
 #aclaracion-modal .modal-content h4 {
   font-size: 1.1em;
   margin-bottom: 0.7em;
-  color: #222;
+  color: #484848;
   text-align: left;
   font-weight: 700;
 }
 #aclaracion-modal .modal-content p,
 #aclaracion-modal .modal-content li {
   font-size: 0.95em;
-  color: #222;
+  color: #484848;
 }
 
 /* Elimina el espacio superior del primer mensaje en el chat */
@@ -1217,21 +1286,4 @@ header + section {
     .bot-input-row {
         padding: 20px;
     }
-}
-
-/* Estados hover mejorados */
-.bot-bubble:hover {
-    transform: translateY(-1px);
-    box-shadow: 
-        0 4px 12px rgba(0, 0, 0, 0.12),
-        0 2px 4px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-}
-
-.user-bubble:hover {
-    transform: translateY(-1px);
-    box-shadow: 
-        0 6px 16px rgba(255, 90, 95, 0.35),
-        0 3px 6px rgba(255, 90, 95, 0.25);
-    transition: all 0.3s ease;
 }
